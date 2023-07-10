@@ -373,7 +373,8 @@ public class mozuaer {
 
         }
         robot.delay(50000);*/
-        robot.delay(30000);
+        robot.delay(1100);
+
 
 
 
