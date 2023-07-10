@@ -9,6 +9,8 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Supplier;
@@ -373,10 +375,6 @@ public class mozuaer {
 
         }
         robot.delay(50000);*/
-        robot.delay(1100);
-
-
-
 
 
 
@@ -386,9 +384,9 @@ public class mozuaer {
         while (true) {
             LOGGER.info("开始新一轮循环");
             LOGGER.info("当前ten_1的值: " + ten_1);
+            outerLoop6:
 
             if (ten_1 == 1) {
-
 
                 Color color1 = robot1.getPixelColor(516, 836);
                 Color color19 = robot1.getPixelColor(575, 838);       //判断游戏画面点1出现(游戏是否在线)
@@ -437,6 +435,8 @@ public class mozuaer {
                     robot.mousePress(InputEvent.BUTTON1_DOWN_MASK); // 按左键
                     robot.delay((int) v);
                     robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK); // 松开左键
+
+
                     Thread.sleep(5000); //延迟
 
                     robot.mouseMove(675, 450); // 鼠标移动到xx坐标轴 点击进入游戏
@@ -7906,7 +7906,7 @@ public class mozuaer {
                                     {712, 310, 255, 234, 183},
                                     {685, 308, 255, 234, 183},//无法使用的对象
                             };
-                            int timeoutSeconds = 15;
+                            int timeoutSeconds = 8;
                             int keyDelayMin = 2300;
                             int keyDelayMax = 3000;
                             AtomicBoolean stopChecking = new AtomicBoolean(false);
@@ -8559,6 +8559,9 @@ public class mozuaer {
                         robot.delay(50);//按住延迟
                         robot.keyRelease(KeyEvent.VK_A);
                         for (; ; ) {
+                            KeyUtil.pressKey(robot, KeyEvent.VK_8, -1);
+                            KeyUtil.pressKey(robot, KeyEvent.VK_9, -1);
+
                             LOGGER.info("进入ten25step8for循环");
                             Color color121 = robot1.getPixelColor(553, 380);
                             Color color122 = robot1.getPixelColor(562, 381);
@@ -9761,7 +9764,11 @@ public class mozuaer {
 
 
             }//确定位置在难民村
-
+            if (ten_1 == 26){
+                LOGGER.info("进入ten=26");
+                KeyUtil.pressKey(robot, KeyEvent.VK_U, -1);
+                KeyUtil.pressKey(robot, KeyEvent.VK_U, -1);
+            }
 
         }
         //while (true2
